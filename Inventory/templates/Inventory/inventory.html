@@ -15,6 +15,7 @@
 
      <!-- Bootstrap Core Css -->
      <link href="{% static 'Inventory/css/bootstrap.css'%}" rel="stylesheet">
+     <link href="{% static 'Inventory/css/bootstrap.min.css'%}" rel="stylesheet">
 
      <!-- Waves Effect Css -->
      <link href="{% static 'Inventory/css/waves.css'%}" rel="stylesheet" />
@@ -60,7 +61,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="../../../index.html">RCM</a>
+                <a class="navbar-brand" href="../Inventory/dashboard.html">RCM</a>
             </div>
             
         </div>
@@ -75,16 +76,13 @@
                     <img src="../../static/Inventory/imgs/user.png" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
-                    <div class="email">john.doe@example.com</div>
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ users.first_name }} {{ users.last_name}}</div>
+                    <div class="email">{{ users.username }}</div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
                             <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
@@ -97,13 +95,13 @@
                     <ul class="list">
                         <li class="header">MAIN NAVIGATION</li>
                         <li class="active">
-                            <a href="{% url 'inventory:logging_in'%}">
+                            <a href="{% url 'inventory:dashboard'%}">
                                 <i class="material-icons">home</i>
                                 <span>Home</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{% url 'inventory:inventory'%}">
                                 <i class="material-icons">assignment</i>
                                 <span>Inventory</span>
                             </a>
@@ -277,9 +275,24 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>BASIC CARD</h2>
+                <h2>Brands</h2>
             </div>
+            <div class="block-header">
+                    <div class="dropdown" style="width: 50%;">
+                            <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Select Brand
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 25%;">
+                              <a class="dropdown-item" href="#">Condura</a>
+                              <a class="dropdown-item" href="#">Carrier</a>
+                              <a class="dropdown-item" href="#">Condura</a>
+                            </div>
+                        </div>
+                </div>
             <!-- Basic Card -->
+            <div class="block-header">
+                    <h2>Kelvinator</h2>
+                </div>
             <div class="row clearfix">
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <div class="card">
@@ -287,18 +300,6 @@
                             <h2>
                                 Basic Card Title <small>Description text here...</small>
                             </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
                         </div>
                         <div class="body">
                             Quis pharetra a pharetra fames blandit. Risus faucibus velit Risus imperdiet mattis neque volutpat, etiam lacinia netus dictum magnis per facilisi sociosqu. Volutpat. Ridiculus nostra.
@@ -312,23 +313,6 @@
                             <h2>
                                 Basic Card Title <small>Description text here...</small>
                             </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li>
-                                    <a href="javascript:void(0);">
-                                        <i class="material-icons">mic</i>
-                                    </a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
                         </div>
                         <div class="body">
                             Quis pharetra a pharetra fames blandit. Risus faucibus velit Risus imperdiet mattis neque volutpat, etiam lacinia netus dictum magnis per facilisi sociosqu. Volutpat. Ridiculus nostra.
@@ -341,18 +325,6 @@
                             <h2>
                                 Basic Card Title <small>Description text here...</small>
                             </h2>
-                            <ul class="header-dropdown m-r-0">
-                                <li>
-                                    <a href="javascript:void(0);">
-                                        <i class="material-icons">info_outline</i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">
-                                        <i class="material-icons">help_outline</i>
-                                    </a>
-                                </li>
-                            </ul>
                         </div>
                         <div class="body">
                             Quis pharetra a pharetra fames blandit. Risus faucibus velit Risus imperdiet mattis neque volutpat, etiam lacinia netus dictum magnis per facilisi sociosqu. Volutpat. Ridiculus nostra.
@@ -360,7 +332,101 @@
                     </div>
                 </div>
             </div>
+
+            <div class="block-header">
+                    <h2>Condura</h2>
+                </div>
+            <div class="row clearfix">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Basic Card Title <small>Description text here...</small>
+                            </h2>
+                        </div>
+                        <div class="body">
+                            Quis pharetra a pharetra fames blandit. Risus faucibus velit Risus imperdiet mattis neque volutpat, etiam lacinia netus dictum magnis per facilisi sociosqu. Volutpat. Ridiculus nostra.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Basic Card Title <small>Description text here...</small>
+                            </h2>
+                        </div>
+                        <div class="body">
+                            Quis pharetra a pharetra fames blandit. Risus faucibus velit Risus imperdiet mattis neque volutpat, etiam lacinia netus dictum magnis per facilisi sociosqu. Volutpat. Ridiculus nostra.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Basic Card Title <small>Description text here...</small>
+                            </h2>
+                        </div>
+                        <div class="body">
+                            Quis pharetra a pharetra fames blandit. Risus faucibus velit Risus imperdiet mattis neque volutpat, etiam lacinia netus dictum magnis per facilisi sociosqu. Volutpat. Ridiculus nostra.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block-header">
+                    <h2>Carrier</h2>
+                </div>
+            <div class="row clearfix">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Basic Card Title <small>Description text here...</small>
+                            </h2>
+                        </div>
+                        <div class="body">
+                            Quis pharetra a pharetra fames blandit. Risus faucibus velit Risus imperdiet mattis neque volutpat, etiam lacinia netus dictum magnis per facilisi sociosqu. Volutpat. Ridiculus nostra.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Basic Card Title <small>Description text here...</small>
+                            </h2>
+                        </div>
+                        <div class="body">
+                            Quis pharetra a pharetra fames blandit. Risus faucibus velit Risus imperdiet mattis neque volutpat, etiam lacinia netus dictum magnis per facilisi sociosqu. Volutpat. Ridiculus nostra.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Basic Card Title <small>Description text here...</small>
+                            </h2>
+                        </div>
+                        <div class="body">
+                            Quis pharetra a pharetra fames blandit. Risus faucibus velit Risus imperdiet mattis neque volutpat, etiam lacinia netus dictum magnis per facilisi sociosqu. Volutpat. Ridiculus nostra.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" class="btn btn-primary btn-lg pull-right">EDIT</button>
+            </div>
+
+            
             <!-- #END# Basic Card -->
+
+
+            
     </section>
 
     <!-- Jquery Core Js -->

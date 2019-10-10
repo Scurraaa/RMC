@@ -20,13 +20,13 @@ def logging_in(request):
     request.session['user'] = username
 
     context = {
-        'users': user
+        'users': auth
     }
 
     if user is not None:
         login(request, user)
         if auth.is_superuser:
-            return render(request, 'Inventory/dashboard.html', context)
+            return HttpResponseRedirect(reverse('inventory:dashboard'))
         else:
             return HttpResponseRedirect(reverse('inventory:index'))
     else:
@@ -34,9 +34,29 @@ def logging_in(request):
 
 
 def summary_tables(request):
-    return render(request, 'Inventory/tables.html')
+    username = request.session['user']
+    user = User.objects.get(username=username)
+    context = {
+        'users': user
+    }
+    return render(request, 'Inventory/tables.html', context)
+
+
+def dashboard(request):
+    username = request.session['user']
+    user = User.objects.get(username=username)
+    context = {
+        'users': user
+    }
+    return render(request, 'Inventory/dashboard.html', context)
 
 
 def inventory(request):
-    return render(request, 'Inventory/inventory.html')
+
+    username = request.session['user']
+    user = User.objects.get(username=username)
+    context = {
+        'users': user
+    }
+    return render(request, 'Inventory/inventory.html', context)
 
