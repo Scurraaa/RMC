@@ -5,7 +5,7 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Normal Tables | Bootstrap Based Admin Template - Material Design</title>
+    <title>RCM - Invetory System</title>
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
@@ -80,12 +80,7 @@
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
                             <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="{% url 'inventory:logging_out' %}"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -280,21 +275,8 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                HOVER ROWS
-                                <small>Add <code>.table-hover</code> to enable a hover state on table rows within a <code>&lt;tbody&gt;</code>.</small>
+                                List of Items
                             </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
                         </div>
                         <div class="body table-responsive">
                             <table class="table table-hover">

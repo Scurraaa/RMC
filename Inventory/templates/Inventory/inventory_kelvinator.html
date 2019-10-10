@@ -84,7 +84,7 @@
                             <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
                             <li role="separator" class="divider"></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="{% url 'inventory:logging_out' %}"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -299,7 +299,7 @@
                          <div class="card" style= "width: 50%;">
                                 <img class="card-img-top" src="../../static/Inventory/imgs/kelvinator/kelvinator-e-series.png" alt="Card image cap">
                                 <div class="header">
-                                  <h2 class="card-title">Centralized Aircon - Condura</h2>
+                                  <h2 class="card-title">Wall Room Air Condition - Kelvinator</h2>
                                 </div>
                                   <div class="body">
                                   <p class="card-text">Model Number: WKELW010EC</p>
@@ -310,7 +310,7 @@
 
         
             <div class="block-header">
-                    <h3 class="text-center">Available Stocks: </h3>
+                    <h3 class="text-center">Available Stocks: {{kelvinator_wrac.stocks}}</h3>
                 </div>
 
             

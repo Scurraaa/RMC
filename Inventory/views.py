@@ -58,8 +58,22 @@ def inventory(request):
 
     username = request.session['user']
     user = User.objects.get(username=username)
+    condura_stock_wrac = Aircon.objects.get(model_number = 'WCONX008EA2')
+    condura_stock_hw = Aircon.objects.get(model_number = '13-42KCR018')
+    condura_stock_pe = Aircon.objects.get(model_number = 'FP-53CCA024313')
+    carrier_stock_wrac = Aircon.objects.get(model_number = 'WCARG006EE')
+    carrier_stock_hw = Aircon.objects.get(model_number = 'FP-42CVUR016-703')
+    carrier_stock_pe = Aircon.objects.get(model_number = 'FB-53CCF-LDS024308')
+    kelvinator_stock_wrac = Aircon.objects.get(model_number = 'WKELW010EC')
     context = {
-        'users': user
+        'users': user,
+        'condura_wrac': condura_stock_wrac,
+        'condura_hw': condura_stock_hw,
+        'condura_pe':condura_stock_pe,
+        'carrier_wrac': carrier_stock_wrac,
+        'carrier_hw': carrier_stock_hw,
+        'carrier_pe': carrier_stock_pe,
+        'kelvinator_wrac': kelvinator_stock_wrac
     }
     return render(request, 'Inventory/inventory.html', context)
 
@@ -67,8 +81,14 @@ def inventory_carrier(request):
 
     username = request.session['user']
     user = User.objects.get(username=username)
+    carrier_stock_wrac = Aircon.objects.get(model_number = 'WCARG006EE')
+    carrier_stock_hw = Aircon.objects.get(model_number = 'FP-42CVUR016-703')
+    carrier_stock_pe = Aircon.objects.get(model_number = 'FB-53CCF-LDS024308')
     context = {
-        'users': user
+        'users': user,
+        'carrier_wrac': carrier_stock_wrac,
+        'carrier_hw': carrier_stock_hw,
+        'carrier_pe': carrier_stock_pe
     }
     return render(request, 'Inventory/inventory_carrier.html', context)
 
@@ -76,8 +96,14 @@ def inventory_condura(request):
 
     username = request.session['user']
     user = User.objects.get(username=username)
+    condura_stock_wrac = Aircon.objects.get(model_number = 'WCONX008EA2')
+    condura_stock_hw = Aircon.objects.get(model_number = '13-42KCR018')
+    condura_stock_pe = Aircon.objects.get(model_number = 'FP-53CCA024313')
     context = {
-        'users': user
+        'users': user,
+        'condura_wrac': condura_stock_wrac,
+        'condura_hw': condura_stock_hw,
+        'condura_pe':condura_stock_pe,
     }
     return render(request, 'Inventory/inventory_condura.html', context)
 
@@ -85,8 +111,39 @@ def inventory_kelvinator(request):
 
     username = request.session['user']
     user = User.objects.get(username=username)
+    kelvinator_stock_wrac = Aircon.objects.get(model_number = 'WKELW010EC')
     context = {
-        'users': user
+        'users': user,
+        'kelvinator_wrac': kelvinator_stock_wrac
     }
     return render(request, 'Inventory/inventory_kelvinator.html', context)
+
+
+def edit_stocks(request):
+    username = request.session['user']
+    user = User.objects.get(username=username)
+    condura_stock_wrac = Aircon.objects.get(model_number = 'WCONX008EA2')
+    condura_stock_hw = Aircon.objects.get(model_number = '13-42KCR018')
+    condura_stock_pe = Aircon.objects.get(model_number = 'FP-53CCA024313')
+    carrier_stock_wrac = Aircon.objects.get(model_number = 'WCARG006EE')
+    carrier_stock_hw = Aircon.objects.get(model_number = 'FP-42CVUR016-703')
+    carrier_stock_pe = Aircon.objects.get(model_number = 'FB-53CCF-LDS024308')
+    kelvinator_stock_wrac = Aircon.objects.get(model_number = 'WKELW010EC')
+    context = {
+        'users': user,
+        'condura_wrac': condura_stock_wrac,
+        'condura_hw': condura_stock_hw,
+        'condura_pe':condura_stock_pe,
+        'carrier_wrac': carrier_stock_wrac,
+        'carrier_hw': carrier_stock_hw,
+        'carrier_pe': carrier_stock_pe,
+        'kelvinator_wrac': kelvinator_stock_wrac
+    }
+    return render(request, 'Inventory/edit_stocks.html', context)
+
+
+def logging_out(request):
+    del request.session['user']
+    logout(request)
+    return HttpResponseRedirect(reverse('inventory:index'))
 

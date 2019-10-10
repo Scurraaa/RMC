@@ -84,7 +84,7 @@
                             <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
                             <li role="separator" class="divider"></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="{% url 'inventory:logging_out' %}"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -302,11 +302,11 @@
                                   <h2 class="card-title">Wall Room Air Condition - Condura </h2>
                                 </div>
                                   <div class="body">
-                                  <p class="card-text">Model Number: WKELW010EC</p>
+                                  <p class="card-text">Model Number: WCONX008EA2</p>
                                 </div>
                         </div>
                     <div class="block-header">
-                            <h3 class="text-center">Available Stocks: </h3>
+                            <h3 class="text-center">Available Stocks:{{condura_wrac.stocks}}</h3>
                         </div>
                 </div>
 
@@ -317,11 +317,11 @@
                                   <h2 class="card-title">High Wall Air Condition - Condura</h2>
                                 </div>
                                   <div class="body">
-                                  <p class="card-text">Model Number: WKELW010EC</p>
+                                  <p class="card-text">Model Number: 13-42KCR018</p>
                                 </div>
                         </div>
                     <div class="block-header">
-                            <h3 class="text-center">Available Stocks: </h3>
+                            <h3 class="text-center">Available Stocks: {{condura_hw.stocks}}</h3>
                         </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -331,11 +331,11 @@
                                   <h2 class="card-title">Centralized Aircon - Condura</h2>
                                 </div>
                                   <div class="body">
-                                  <p class="card-text">Model Number: WKELW010EC</p>
+                                  <p class="card-text">Model Number: FP-53CCA024313</p>
                                 </div>
                         </div>
                     <div class="block-header">
-                            <h3 class="text-center">Available Stocks: </h3>
+                            <h3 class="text-center">Available Stocks: {{condura_pe.stocks}}</h3>
                         </div>
                 </div>
             </div>
