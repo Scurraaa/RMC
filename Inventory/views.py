@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.urls import reverse
+from .models import Aircon
 
 # Create your views here.
 
@@ -36,8 +37,10 @@ def logging_in(request):
 def summary_tables(request):
     username = request.session['user']
     user = User.objects.get(username=username)
+    aircon = Aircon.objects.all()
     context = {
-        'users': user
+        'users': user,
+        'aircon': aircon
     }
     return render(request, 'Inventory/tables.html', context)
 
@@ -59,4 +62,31 @@ def inventory(request):
         'users': user
     }
     return render(request, 'Inventory/inventory.html', context)
+
+def inventory_carrier(request):
+
+    username = request.session['user']
+    user = User.objects.get(username=username)
+    context = {
+        'users': user
+    }
+    return render(request, 'Inventory/inventory_carrier.html', context)
+
+def inventory_condura(request):
+
+    username = request.session['user']
+    user = User.objects.get(username=username)
+    context = {
+        'users': user
+    }
+    return render(request, 'Inventory/inventory_condura.html', context)
+
+def inventory_kelvinator(request):
+
+    username = request.session['user']
+    user = User.objects.get(username=username)
+    context = {
+        'users': user
+    }
+    return render(request, 'Inventory/inventory_kelvinator.html', context)
 
