@@ -281,7 +281,6 @@
                         <div class="body table-responsive">
                             <table class="table table-hover">
                                 <thead>
-                                    {% for aircons in aircon %}
                                     <tr>
                                         <th>Model Type</th>
                                         <th>Aircon Type</th>
@@ -290,13 +289,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                                                   {% for aircons in aircon %}
                                     <tr>
                                         <td>{{ aircons.model_type }}</td>
                                         <td>{{ aircons.aircon_type}}</td>
                                         <td>{{ aircons.stocks }}</td>
                                         <td>{{ aircons.model_number }}</td>
                                     </tr>
-                                    {% endfor %}
+                                                                {% endfor %}
                                 </tbody>
                             </table>
                         </div>

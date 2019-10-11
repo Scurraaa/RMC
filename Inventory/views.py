@@ -122,6 +122,7 @@ def inventory_kelvinator(request):
 def edit_stocks(request):
     username = request.session['user']
     user = User.objects.get(username=username)
+    aircon = Aircon.objects.all()
     condura_stock_wrac = Aircon.objects.get(model_number = 'WCONX008EA2')
     condura_stock_hw = Aircon.objects.get(model_number = '13-42KCR018')
     condura_stock_pe = Aircon.objects.get(model_number = 'FP-53CCA024313')
@@ -131,6 +132,7 @@ def edit_stocks(request):
     kelvinator_stock_wrac = Aircon.objects.get(model_number = 'WKELW010EC')
     context = {
         'users': user,
+        'aircon': aircon,
         'condura_wrac': condura_stock_wrac,
         'condura_hw': condura_stock_hw,
         'condura_pe':condura_stock_pe,
