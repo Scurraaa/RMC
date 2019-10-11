@@ -19,6 +19,7 @@ $(document).ready(function(){
         });
     });
     $('#submit_stock').click(function(event){
+        alert("Stocks Updated Successfully!");
         event.preventDefault();
         var stock = $('#current_stocks').val();
         var model_number = $('#select_model_number :selected').val();
