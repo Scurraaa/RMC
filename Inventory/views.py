@@ -119,7 +119,7 @@ def inventory_kelvinator(request):
     return render(request, 'Inventory/inventory_kelvinator.html', context)
 
 
-def edit_stocks(request):
+def stocks(request):
     username = request.session['user']
     user = User.objects.get(username=username)
     aircon = Aircon.objects.all()
@@ -142,6 +142,17 @@ def edit_stocks(request):
         'kelvinator_wrac': kelvinator_stock_wrac
     }
     return render(request, 'Inventory/edit_stocks.html', context)
+
+
+def edit_stocks(request):
+    aircon = Aircon.objects.all()
+    data={
+        'aircon': aircon
+    }
+
+    return JsonResponse(data)
+
+
 
 
 def logging_out(request):

@@ -82,7 +82,8 @@
                 <img src="../../static/Inventory/imgs/user.png" width="48" height="48" alt="User"/>
             </div>
             <div class="info-container">
-                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ users.first_name }} {{ users.last_name}}</div>
+                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ users.first_name }} {{ users.last_name}}
+                </div>
                 <div class="email">{{ users.username }}</div>
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
@@ -314,35 +315,21 @@
 
                         <!-- Modal body -->
                         <div class="modal-body">
-                            <h3>Model Number:
-                                <select class="mdb-select md-form">
-                                  <option value="" disabled selected>Choose your option</option>
-                                  <option value="1">Option 1</option>
-                                  <option value="2">Option 2</option>
-                                  <option value="3">Option 3</option>
+                            <h3>Model Number: </h3>
+                            <div>
+                                <select class="form-control form-control-lg">
+                                    <option>-- Choose Model Number ---</option>
+                                    {% for each in aircon %}
+                                    <option value="{{ each.model_number }}">{{ each.model_number }} || {{ each.model_type}} || {{ each.aircon_type }}</option>
+                                    {% endfor %}
                                 </select>
-                                <label class="mdb-main-label">Example label</label>
-                                <button class="btn-save btn btn-primary btn-sm">Save</button>
+                            <div>
+                                <h3>Current Stocks:
+                                    <input type="text" class="form-control" name="Current Stocks: " />
+                                </h3>
 
-                                <!--<select class="browser-default custom-select custom-select-lg mb-3">-->
-                                    <!--<option selected>Open this select menu</option>-->
-                                        <!--<option value="1">One</option>-->
-                                        <!--<option value="2">Two</option>-->
-                                        <!--<option value="3">Three</option>-->
-                                    <!--</select>-->
-
-                                <!--<div class="form-group">-->
-                                    <!--<label for="exampleFormControlSelect1">Example select</label>-->
-                                    <!--<select class="form-control" id="exampleFormControlSelect1">-->
-                                        <!--<option>1</option>-->
-                                        <!--<option>2</option>-->
-                                        <!--<option>3</option>-->
-                                        <!--<option>4</option>-->
-                                        <!--<option>5</option>-->
-                                    <!--</select>-->
-                                <!--</div>-->
-                            </h3>
-
+                            </div>
+                            </div>
                         </div>
 
                         <!-- Modal footer -->
@@ -513,8 +500,8 @@
 <!-- Bootstrap Core Js -->
 <script src="{% static 'Inventory/js/bootstrap.js'%}"></script>
 
-<!-- Select Plugin Js -->
-<script src="{% static 'Inventory/js/bootstrap-select.js'%}"></script>
+<!--&lt;!&ndash; Select Plugin Js &ndash;&gt;-->
+<!--<script src="{% static 'Inventory/js/bootstrap-select.js'%}"></script>-->
 
 <!-- Slimscroll Plugin Js -->
 <script src="{% static 'Inventory/js/jquery.slimscroll.js'%}"></script>
