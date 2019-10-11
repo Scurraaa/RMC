@@ -19,7 +19,6 @@ $(document).ready(function(){
         });
     });
     $('#submit_stock').click(function(event){
-        alert("Stocks Updated Successfully!");
         event.preventDefault();
         var stock = $('#current_stocks').val();
         var model_number = $('#select_model_number :selected').val();
@@ -34,6 +33,7 @@ $(document).ready(function(){
             dataType: 'json',
             success: function(data){
                 if (data.status === "success") {
+                    alert("Stocks Successfully Updated!");
                     window.location.replace('/dashboard/inventory/')
                 }
             },
