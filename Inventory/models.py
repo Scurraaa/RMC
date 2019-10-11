@@ -22,3 +22,9 @@ class Aircon(models.Model):
     aircon_type = models.ForeignKey(AirconType, on_delete=models.DO_NOTHING)
     stocks = models.IntegerField()
     model_number = models.CharField(max_length=255)
+
+    def __str__(self):
+        return str(self.model_type)
+
+    def __str__(self):
+        return str(self.aircon_type)

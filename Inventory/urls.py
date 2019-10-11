@@ -10,6 +10,7 @@ urlpatterns = [
     path('logging_out/', views.logging_out, name="logging_out"),
     path('dashboard/', views.dashboard, name="dashboard"),
     path('dashboard/summary/', views.summary_tables, name='summary'),
+    path('dashboard/summary/export_csv', views.export_csv, name="export_to_csv"),
     path('dashboard/inventory/', views.inventory, name='inventory'),
     path('dashboard/inventory/condura', views.inventory_condura, name="inventory_condura"),
     path('dashboard/inventory/carrier', views.inventory_carrier, name="inventory_carrier"),

@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django.contrib.auth.models import User
 from django.urls import reverse
 from .models import Aircon
+from .resources import AirconResource
 
 # Create your views here.
 
@@ -172,6 +173,14 @@ def update(request):
         "status": "success"
     }
     return JsonResponse(data)
+
+def export_csv(request):
+    aircon_resources = AirconResource()
+    dataset = aircon_resources.export()
+    response = HttpResponse(dataset.csv, content_type='application/json')
+    response['Content-Disposition'] = 'attachment; filename="Aircon_Inventory.csv"'
+    return response
+
 
 def logging_out(request):
     del request.session['user']

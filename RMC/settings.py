@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Inventory.apps.InventoryConfig',
     'Summary.apps.SummaryConfig',
+    'import_export',
 ]
 
 MIDDLEWARE = [
