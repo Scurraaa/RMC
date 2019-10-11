@@ -6,7 +6,7 @@
 	display: flex;
 }
 .company__info{
-	background-color: #fff;
+	background-color: #fb9224;
 	border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;
 	display: flex;
@@ -29,7 +29,7 @@
 	.main-content{width: 70%;}
 }
 .row > h2{
-	color:#fff;
+	color:#fb9224;
 }
 .login_form{
 	background-color: #fff;
@@ -63,7 +63,7 @@ form{
 	border-radius: 30px;
 	color:#fb9224;
 	font-weight: 600;
-	background-color: #fb9224;
+	background-color: #FFF;
 	border: 1px solid #fb9224;
 	margin-top: 1.5em;
 	margin-bottom: 1em;
