@@ -60,7 +60,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="{% url 'inventory:logging_in'%}">RCM</a>
+                <a class="navbar-brand" href="{% url 'inventory:dashboard'%}">RCM - Inventory System</a>
             </div>
         </div>
     </nav>
@@ -79,7 +79,6 @@
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
                             <li><a href="{% url 'inventory:logging_out' %}"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
@@ -90,7 +89,7 @@
             <div class="menu">
                     <ul class="list">
                         <li class="header">MAIN NAVIGATION</li>
-                        <li class="active">
+                        <li>
                             <a href="{% url 'inventory:dashboard'%}">
                                 <i class="material-icons">home</i>
                                 <span>Home</span>
@@ -102,7 +101,7 @@
                                 <span>Inventory</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="{% url 'inventory:summary'%}">
                                 <i class="material-icons">view_list</i>
                                 <span>Tables</span>
