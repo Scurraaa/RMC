@@ -318,11 +318,8 @@
                         <div class="modal-body">
                             <h3>Model Number: </h3>
                             <div>
-                                <form action="{% url 'inventory:search_item' %}" method="post">
-                                    {% csrf_token %}
-                                    <button class="btn btn-primary pull-right" name="submit">Submit</button>
-                                </form>
-                                <select name="select_model_number" class="form-control form-control-lg">
+                                {% csrf_token %}
+                                <select id="select_model_number" name="select_model_number" class="form-control form-control-lg">
                                     <option>-- Choose Model Number ---</option>
                                     {% for each in aircon %}
                                     <option value="{{ each.model_number }}">{{ each.model_number }} || {{ each.model_type}} || {{ each.aircon_type }}
@@ -332,13 +329,14 @@
                                 <div>
                                     <h3>Current Stocks:
                                     </h3>
-
+                                    <input id="current_stocks">
                                 </div>
                             </div>
                         </div>
 
                         <!-- Modal footer -->
                         <div class="modal-footer">
+                            <button class="btn btn-primary pull-right" id="submit_stock" data-dismiss="modal">Submit</button>
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                         </div>
 
@@ -523,5 +521,6 @@
 
 <!-- Demo Js -->
 <script src="{% static 'Inventory/js/demo.js'%}"></script>
+<script src="{% static 'Inventory/js/edit.js'%}"></script>
 </body>
 </html>

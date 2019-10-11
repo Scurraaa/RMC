@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.contrib.auth.models import User
 from django.urls import reverse
 from .models import Aircon
@@ -150,6 +150,28 @@ def search_item(request):
 
     return render(request, 'Inventory/edit_stocks.html')
 
+
+def get_stock(request):
+    model_number = request.POST.get('model_number')
+    print(model_number)
+    aircon = Aircon.objects.get(model_number=model_number)
+    stocks = aircon.stocks
+    data = {
+        "stocks": stocks
+    }
+    return JsonResponse(data)
+
+
+def update(request):
+    model_number = request.POST.get('model_number')
+    stock = request.POST.get('stock')
+    aircon = Aircon.objects.get(model_number=model_number)
+    aircon.stocks = stock
+    aircon.save()
+    data = {
+        "status": "success"
+    }
+    return JsonResponse(data)
 
 def logging_out(request):
     del request.session['user']

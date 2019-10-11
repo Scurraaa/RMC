@@ -15,6 +15,8 @@ urlpatterns = [
     path('dashboard/inventory/carrier', views.inventory_carrier, name="inventory_carrier"),
     path('dashboard/inventory/kelvinator', views.inventory_kelvinator, name="inventory_kelvinator"),
     path('dashboard/inventory/edit_stocks', views.stocks, name="edit_stocks"),
-    path('dashboard/inventory/edti_stocks/search_item', views.search_item, name="search_item")
+    path('dashboard/inventory/edit_stocks/search_item', views.search_item, name="search_item"),
+    path('dashboard/inventory/edit_stocks/get_stock', views.get_stock, name="get_stock"),
+    path('dashboard/inventory/edit_stocks/update', views.update, name="update"),
 ]
 
