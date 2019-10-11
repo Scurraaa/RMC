@@ -144,15 +144,11 @@ def stocks(request):
     return render(request, 'Inventory/edit_stocks.html', context)
 
 
-def edit_stocks(request):
-    aircon = Aircon.objects.all()
-    data={
-        'aircon': aircon
-    }
+def search_item(request):
+    model_number = request.POST.get('select_model_number')
+    print(model_number)
 
-    return JsonResponse(data)
-
-
+    return render(request, 'Inventory/edit_stocks.html')
 
 
 def logging_out(request):

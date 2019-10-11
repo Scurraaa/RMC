@@ -82,7 +82,8 @@
                 <img src="../../static/Inventory/imgs/user.png" width="48" height="48" alt="User"/>
             </div>
             <div class="info-container">
-                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ users.first_name }} {{ users.last_name}}
+                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ users.first_name
+                    }} {{ users.last_name}}
                 </div>
                 <div class="email">{{ users.username }}</div>
                 <div class="btn-group user-helper-dropdown">
@@ -317,18 +318,22 @@
                         <div class="modal-body">
                             <h3>Model Number: </h3>
                             <div>
-                                <select class="form-control form-control-lg">
+                                <form action="{% url 'inventory:search_item' %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-primary pull-right" name="submit">Submit</button>
+                                </form>
+                                <select name="select_model_number" class="form-control form-control-lg">
                                     <option>-- Choose Model Number ---</option>
                                     {% for each in aircon %}
-                                    <option value="{{ each.model_number }}">{{ each.model_number }} || {{ each.model_type}} || {{ each.aircon_type }}</option>
+                                    <option value="{{ each.model_number }}">{{ each.model_number }} || {{ each.model_type}} || {{ each.aircon_type }}
+                                    </option>
                                     {% endfor %}
                                 </select>
-                            <div>
-                                <h3>Current Stocks:
-                                    <input type="text" class="form-control" name="Current Stocks: " />
-                                </h3>
+                                <div>
+                                    <h3>Current Stocks:
+                                    </h3>
 
-                            </div>
+                                </div>
                             </div>
                         </div>
 
