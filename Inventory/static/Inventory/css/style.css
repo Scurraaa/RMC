@@ -14,9 +14,7 @@
 	justify-content: center;
 	color: #fff;
 }
-.fa-android{
-	font-size:3em;
-}
+
 @media screen and (max-width: 640px) {
 	.main-content{width: 90%;}
 	.company__info{
@@ -55,7 +53,7 @@ form{
 	transition: all .5s ease;
 }
 .form__input:focus{
-	border-bottom-color: #fff;
+	border-bottom-color: #fb9224;
 	box-shadow: 0 0 5px rgba(0,80,80,.4); 
 	border-radius: 4px;
 }
@@ -63,10 +61,10 @@ form{
 	transition: all .5s ease;
 	width: 70%;
 	border-radius: 30px;
-	color:#fff;
+	color:#fb9224;
 	font-weight: 600;
-	background-color: #fff;
-	border: 1px solid #fff;
+	background-color: #fb9224;
+	border: 1px solid #fb9224;
 	margin-top: 1.5em;
 	margin-bottom: 1em;
 }
